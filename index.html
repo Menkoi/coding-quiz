@@ -7,20 +7,23 @@
     <title>Coding Quiz</title>
 </head>
 <body>
-    <div class="container">
-        <div class="question-container" class="hide"></div>
-        <div id="question">Question</div>
-        <div id="answer-buttons" class="btn-grid">
-            <button class="btn">Answer 1</button>
-            <button class="btn">Answer 2</button>
-            <button class="btn">Answer 3</button>
-            <button class="btn">Answer 4</button>
-        </div>
-        <div class="controls">
-            <button id="start-btn" class="start-btn btn">Start</button>
-            <button id="next-btn" class="next-btn btn">Next</button>
-        </div>
+    <!--Start Quiz Button-->
+<div class="start-btn"><button>Start Quiz</button></div>
+
+<!--Info Box-->
+<div class="info-box">
+    <div class="info-title">
+        <span>Rules Of The Quiz</span>
     </div>
+    <div class="info-list">
+        <div class="info">1. You will only have <span>15 seconds</span> per each question</div>
+        <div class="info">2. You will get points on how many quesitons you get correct</div>   
+    </div>
+    <div class="buttons">
+        <button class="quit">Exit Quiz</button>
+        <button class="restart">Continue</button>
+    </div>
+</div>
+    <script src="./assets/script.js"></script>
 </body>
-<script src="./assets/script.js"></script>
 </html>
