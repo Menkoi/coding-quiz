@@ -1,4 +1,7 @@
-.start-btn, .info-box {
+body {
+    background-color: lightblue;
+}
+.start-btn, .info-box, .quiz-box {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -61,4 +64,135 @@
 
 .info-box .buttons button:hover {
     background-color: lightblue;
+}
+
+.quiz-box {
+    width: 550px;
+    background: white;
+    border-radius: 5px;
+
+}
+
+.quiz-box header {
+    height: 70px;
+    position: relative;
+    z-index: 99;
+    padding: 0 30px;
+    background: rgb(103, 189, 230);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px 5px 0 0;
+}
+
+.quiz-box header .title {
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+}
+
+.quiz-box header .timer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 145px;
+    height: 45px;
+    background: lightblue;
+    border-radius: 5px;
+    padding: 0 8px;
+}
+
+.quiz-box header .timer .time-text {
+    font-weight: bold;
+    font-size: 17px;
+    user-select: none;
+}
+
+.quiz-box header .timer .timer-sec {
+    font-size:  18px;
+    font-weight: 500;
+    background: gray;
+    height: 30px;
+    width: 45px;
+    text-align: center;
+    color: white;
+    line-height: 30px;
+    border-radius: 5px;
+}
+
+.quiz-box section {
+    padding: 25px 30px 20px 30px;
+}
+
+.quiz-box section .que-text {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.quiz-box section .option-list {
+    padding: 20px;
+    display: block;
+}
+
+section .option-list .option {
+    background-color: rgb(103, 189, 230);
+    border: 1px solid lightblue;
+    color: white;
+    border-radius: 5px;
+    padding: 8px 15px;
+    margin-bottom: 15px;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+section .option-list .option:hover {
+    background-color: lightblue;
+}
+
+.option-list .option:last-child{
+    margin-bottom: 0px;
+}
+
+.quiz-box footer .total-questions span {
+    display: flex;
+    user-select: none;
+}
+
+.quiz-box footer {
+    height: 100px;
+    width: 100%;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+footer .total-questions span p {
+    font-weight: 500;
+    padding: 0 5px;
+}
+
+.total-questions span p:first-child {
+    padding-left: 0px;
+}
+
+footer .next-btn {
+    height: 40px;
+    padding: 0 13px;
+    font-size: 15px;
+    font-weight: 400;
+    border: none;
+    outline: none;
+    background:rgb(103, 189, 230);
+    color: white;
+    border-radius: 5px;
+}
+
+footer .next-btn:hover {
+    background: lightblue;
+    transition: all 0.3s ease;
 }
