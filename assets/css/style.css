@@ -1,6 +1,7 @@
 body {
     background-color: lightblue;
 }
+
 .start-btn, .info-box, .quiz-box, .result-box {
     position: absolute;
     top: 50%;
@@ -8,9 +9,10 @@ body {
     transform: translate(-50%, -50%);
     box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2),
                 0px 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: all 0.3s ease;
 }
 
-.info-box.activeInfo{
+.info-box.activeInfo, .quiz-box.activeQuiz{
     z-index: 5;
     opacity: 1;
     pointer-events: auto;
