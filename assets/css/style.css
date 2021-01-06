@@ -189,6 +189,18 @@ section .option-list .option:hover {
     user-select: none;
 }
 
+.option-list .option.correct {
+    background: lightgreen;
+}
+
+.option-list .option.incorrect {
+    background: rgb(192, 134, 143);
+}
+
+.option-list .option.disable {
+    pointer-events: none;
+}
+
 .quiz-box footer {
     height: 60px;
     width: 90%;
