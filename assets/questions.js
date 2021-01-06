@@ -6,7 +6,7 @@ let questions = [
         question: "Лорем ипсум долор сит амет?",
         answer: "Hyper aaaaaaaa",
         options: [
-            "Hyper aaaaaaaa",
+            "Hyper aaaaaaaa*",
             "yyyyyyyyyyyyyy",
             "ffffffffffffffff",
             "ggggggggggggggggg"
@@ -19,7 +19,7 @@ let questions = [
         answer: "Тале инани но сит",
         options: [
             "партиендо глориатур не нец",
-            "Тале инани но сит",
+            "Тале инани но сит*",
             "Не ехплицари еурипидис нец",
             "Еи сеа игнота сцрипторем"
         ]
@@ -31,7 +31,7 @@ let questions = [
         answer: "段頼な地収ワセカス省理果場つをがだ",
         options: [
             "世んゆれッ目枚どうょル控",
-            "段頼な地収ワセカス省理果場つをがだ",
+            "段頼な地収ワセカス省理果場つをがだ*",
             "直ヨマ宇前済がっへぎ上8示",
             "祭シヲト能成共ヱユカ金道再ドぐ"
         ]
@@ -45,7 +45,7 @@ let questions = [
             "헌법재판소의 조직과 운영 기타 필요한",
             "모든 국민은 주거의 자유를 침해받지 아니한다",
             "동의를 얻어 대통령이 임명하고",
-            "형사피고인은 상당한 이유가 없는 한"
+            "형사피고인은 상당한 이유가 없는 한*"
         ]
     },
 
@@ -55,7 +55,7 @@ let questions = [
         answer: " Re inter artefarita multiplikite nia",
         options: [
             "suba koruso hodiaŭa oz ene",
-            " Re inter artefarita multiplikite nia",
+            " Re inter artefarita multiplikite nia*",
             "Poa ng modo kilo rolvorteto",
             "Nek reciproke centimetro ve, jes fi kiomas "
         ]

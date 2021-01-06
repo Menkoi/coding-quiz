@@ -92,7 +92,7 @@ body {
 
 /* QUIZ BOX */
 .quiz-box {
-    width: 550px;
+    width: 600px;
     background: white;
     border-radius: 5px;
     opacity: 0;
@@ -157,7 +157,7 @@ body {
 }
 
 .quiz-box section .option-list {
-    padding: 20px;
+    padding: 20px 0;
     display: block;
 }
 
@@ -190,8 +190,8 @@ section .option-list .option:hover {
 }
 
 .quiz-box footer {
-    height: 100px;
-    width: 100%;
+    height: 60px;
+    width: 90%;
     padding: 0 30px;
     display: flex;
     align-items: center;
@@ -201,6 +201,7 @@ section .option-list .option:hover {
 footer .total-questions span p {
     font-weight: 500;
     padding: 0 5px;
+    display: flex;
 }
 
 .total-questions span p:first-child {
