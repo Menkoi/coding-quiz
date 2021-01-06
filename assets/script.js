@@ -5,6 +5,8 @@ var exitBtn = infoBox.querySelector(".buttons .quit");
 var continueBtn = infoBox.querySelector(".buttons .restart");
 var quizBox = document.querySelector(".quiz-box");
 var option_list = document.querySelector(".option-list");
+var timeCount = quizBox.querySelector(".timer .timer-sec");
+var timeLine = quizBox.querySelector("header .time_line");
 
 // start quiz button clicked
 startBtn.onclick = ()=>{
@@ -22,10 +24,15 @@ continueBtn.onclick = ()=>{
     quizBox.classList.add("activeQuiz"); // show quiz box 
     showQuestions(0);
     queCounter(1);
+    startTimer(15);
+    startTimerLine(0);
 }
 
 let que_count = 0;
 let que_numb = 1;
+let counter;
+let timeValue = 15;
+let widthValue = 0;
 
 var next_btn = quizBox.querySelector(".next-btn")
 
@@ -36,6 +43,10 @@ if(que_count < questions.length - 1){
     que_numb++;
     showQuestions(que_count)
     queCounter(que_numb);
+    clearInterval(counter);
+    startTimer(timeValue);
+    clearInterval(counterLine);
+    startTimerLine(widthValue);
 } else{
     console.log("Questions Complete")
 }
@@ -58,6 +69,8 @@ function showQuestions(index) {
 }
 
 function optionSelected(answer){
+    clearInterval(counter);
+    clearInterval(counterLine);
     let userAns = answer.textContent;
     let correctAns = questions[que_count].answer;
     let allOptions = option_list.children.length;
@@ -82,6 +95,32 @@ function optionSelected(answer){
     }
 }
 
+function startTimer(time) {
+    counter = setInterval(timer, 1000)
+    function timer(){
+        timeCount.textContent = time;
+        time--;
+        if(time < 9){
+            let addZero = timeCount.textContent;
+            timeCount.textContent = "0" + addZero;
+        }
+        if(time < 0){
+            clearInterval(counter);
+            timeCount.textContent = "0";
+        }
+    }
+}
+
+function startTimerLine(time) {
+    counterLine = setInterval(timer, 29);
+    function timer(){
+        time += 1; 
+        timeLine.style.width = time + "px";
+        if(time > 549){
+            clearInterval(counterLine);
+        }
+    }
+}
 
 function queCounter(index){
     var bottom_que_counter = quizBox.querySelector(".total-questions");
