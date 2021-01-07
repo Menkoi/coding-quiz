@@ -303,3 +303,11 @@ footer .next-btn:hover {
 .result-box .buttons button:hover {
     background: lightblue;
 }
+
+.result-box input {
+    border: 2px solid lightblue;
+    border-radius: 5px;
+    margin: 8px 0;
+    outline: none;
+    padding: 8px;
+}

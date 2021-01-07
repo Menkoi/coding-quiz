@@ -31,7 +31,7 @@
         <div class="title">Coding Quiz Application</div>
         <div class="timer">
             <div class="time-text">Time Left</div>
-            <div class="timer-sec">15</div>
+            <div class="timer-sec">75</div>
         </div>
         <div class="time_line"></div>
     </header>
@@ -73,8 +73,12 @@
             <span>you got <p>2</p> out of <p>5</p></span>
         </div>
     <div class="buttons">
-        <button class="restart">Replay Quiz</button>
-        <button class="quit">Quit Quiz</button>
+        <button class="quit">Replay Quiz</button>
+    </div>
+    <div>
+        <h2>Would you like to save your score?</h2>
+        <input type="text" name="username" id="username" placeholder="Your Name">
+        <button type="submit" class="btn" id="saveScoreBtn" onclick="saveHighScore" disabled></button>
     </div>
 </div>
     <script src="./assets/questions.js"></script>

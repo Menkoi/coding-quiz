@@ -9,6 +9,11 @@ var timeCount = quizBox.querySelector(".timer .timer-sec");
 var timeLine = quizBox.querySelector("header .time_line");
 var timeOff = quizBox.querySelector("header .time-text");
 
+var submitBtn = document.querySelector("result-box .submit");
+var saveScoreBtn = document.getElementById("saveScoreBtn");
+var mostRecentScore = localStorage.getItem("mostRecentScore");
+
+
 // start quiz button clicked
 startBtn.onclick = ()=>{
     infoBox.classList.add("activeInfo");
@@ -25,7 +30,7 @@ continueBtn.onclick = ()=>{
     quizBox.classList.add("activeQuiz"); // show quiz box 
     showQuestions(0);
     queCounter(1);
-    startTimer(30);
+    startTimer(75);
     startTimerLine(0);
 }
 
@@ -33,7 +38,7 @@ let que_count = 0;
 let que_numb = 1;
 let counter;
 let counterLine;
-let timeValue = 15;
+let timeValue = 75;
 let widthValue = 0;
 let userScore = 0;
 
@@ -46,24 +51,6 @@ quit_quiz.onclick = ()=>{
     window.location.reload();
 }
 
-restart_quiz.onclick = ()=>{
-quizBox.classList.add("activeQuiz");
-result_box.classList.remove("activeResult");
-let que_count = 0;
-let que_numb = 1;
-let timeValue = 30;
-let widthValue = 0;
-
-showQuestions(que_count);
-queCounter(que_numb);
-clearInterval(counter);
-startTimer(timeValue);
-clearInterval(counterLine);
-startTimerLine(widthValue);
-next_btn.style.display = "none";
-timeOff.textContent = "Time Left";
-}
-
 //if next button clicked
 next_btn.onclick = ()=>{
 if(que_count < questions.length - 1){
@@ -71,8 +58,6 @@ if(que_count < questions.length - 1){
     que_numb++;
     showQuestions(que_count)
     queCounter(que_numb);
-    clearInterval(counter);
-    startTimer(timeValue);
     clearInterval(counterLine);
     startTimerLine(widthValue);
     next_btn.style.display  = "none";
@@ -102,7 +87,7 @@ function showQuestions(index) {
 }
 
 function optionSelected(answer){
-    clearInterval(counter);
+
     clearInterval(counterLine);
     let userAns = answer.textContent;
     let correctAns = questions[que_count].answer;
@@ -121,7 +106,7 @@ function optionSelected(answer){
             if(option_list.children[i].textContent == correctAns){
                 option_list.children[i].setAttribute("class", "option correct")
             }
-         }    
+         }
     
     }
     // user select, disable all options
@@ -136,6 +121,7 @@ function showResultBox(){
     quizBox.classList.add("activeQuiz"); // show quiz box 
     result_box.classList.add("activeResult"); // show result box
     var scoreText = result_box.querySelector(".score-text"); 
+    
     if(userScore > 3){
         let scoreTag = '<span>Congrats! you got ' + userScore + ' out of ' + questions.length +'</span>';
         scoreText.innerHTML = scoreTag;
@@ -163,6 +149,8 @@ function startTimer(time) {
             clearInterval(counter);
             timeCount.textContent = "0";
             timeOff.textContent = "Time Off";
+
+            showResultBox();
 
             let correctAns = questions[que_count].answer;
             let allOptions = option_list.children.length;
@@ -196,6 +184,9 @@ function queCounter(index){
     let totalQuestionCountTag = '<span>' + index + ' Of ' + questions.length + ' Questions</span>';
     bottom_que_counter.innerHTML = totalQuestionCountTag;
 }
+
+// read high scores
+
 
 
 
