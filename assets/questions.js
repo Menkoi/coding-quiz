@@ -1,4 +1,4 @@
-//questions array, pass number, question, options, and questions
+//questions array, pass number, options, and questions
 
 let questions = [
     {

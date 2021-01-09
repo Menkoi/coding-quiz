@@ -6,13 +6,9 @@ var continueBtn = infoBox.querySelector(".buttons .restart");
 var quizBox = document.querySelector(".quiz-box");
 var option_list = document.querySelector(".option-list");
 var timeCount = quizBox.querySelector(".timer .timer-sec");
-var timeLine = quizBox.querySelector("header .time_line");
 var timeOff = quizBox.querySelector("header .time-text");
-
+var result_box = document.querySelector("result-box");
 var submitBtn = document.querySelector("result-box .submit");
-var saveScoreBtn = document.getElementById("saveScoreBtn");
-var mostRecentScore = localStorage.getItem("mostRecentScore");
-
 
 // start quiz button clicked
 startBtn.onclick = ()=>{
@@ -30,17 +26,18 @@ continueBtn.onclick = ()=>{
     quizBox.classList.add("activeQuiz"); // show quiz box 
     showQuestions(0);
     queCounter(1);
-    startTimer(75);
-    startTimerLine(0);
+    startTimer(time);
 }
 
 let que_count = 0;
 let que_numb = 1;
 let counter;
-let counterLine;
-let timeValue = 75;
+var time = 75;
 let widthValue = 0;
 let userScore = 0;
+let timeSub = -10;
+let highscoreDiv = document.querySelector("#highscore");
+let mainEl = document.querySelector("#details");
 
 var next_btn = quizBox.querySelector(".next-btn");
 var result_box = document.querySelector(".result-box");
@@ -58,13 +55,10 @@ if(que_count < questions.length - 1){
     que_numb++;
     showQuestions(que_count)
     queCounter(que_numb);
-    clearInterval(counterLine);
-    startTimerLine(widthValue);
     next_btn.style.display  = "none";
     timeOff.textContent = "Time Left";
 } else{
-    clearInterval(counter);
-    clearInterval(counterLine);
+    setInterval(counter);
     console.log("Questions Complete");
     showResultBox();
 }
@@ -86,9 +80,9 @@ function showQuestions(index) {
     }
 }
 
+
 function optionSelected(answer){
 
-    clearInterval(counterLine);
     let userAns = answer.textContent;
     let correctAns = questions[que_count].answer;
     let allOptions = option_list.children.length;
@@ -97,8 +91,28 @@ function optionSelected(answer){
         console.log(userScore);
     console.log("Answer is Correct");
     answer.classList.add("correct");
-    } else {
-        answer.classList.add("incorrect");
+    } else { 
+        
+        //time -= 10;
+        //setInterval(time, 1000);
+        //timeCount.textContent = time;
+        //startTimer(time);
+
+        //console.log(time);
+
+     
+
+        //if (timeSub > 0) {
+            
+            ///stopInterval(counter);
+            //clearInterval(counterLine);
+            //timeCount.textContent = "0";
+            //timeOff.textContent = "Time Off";
+            
+            //showResultBox();
+        //}
+
+        answer.classList.add("incorrect",);
         console.log("Answer is wrong");
 
          //if answers is incorrect then auto select the correct answert
@@ -107,18 +121,21 @@ function optionSelected(answer){
                 option_list.children[i].setAttribute("class", "option correct")
             }
          }
-    
     }
     // user select, disable all options
     for (let i = 0; i < allOptions; i++) {
         option_list.children[i].classList.add("disable");
     }
     next_btn.style.display  = "block";
+
+    
 }
 
 function showResultBox(){
+    clearInterval(counter);
+    next_btn.style.display  = "none";
     infoBox.classList.remove("activeInfo");
-    quizBox.classList.add("activeQuiz"); // show quiz box 
+    //quizBox.classList.add("activeQuiz"); // show quiz box 
     result_box.classList.add("activeResult"); // show result box
     var scoreText = result_box.querySelector(".score-text"); 
     
@@ -134,6 +151,92 @@ function showResultBox(){
         let scoreTag = '<span>you got ' + userScore + ' out of ' + questions.length + '</span>';
         scoreText.innerHTML = scoreTag;
     }
+    
+     // creates input for user to add initials
+  //let par = document.createElement("p");
+
+  let initialsInput = document.createElement("input");
+  initialsInput.setAttribute("id","userInitials");
+  initialsInput.setAttribute("name","userInitials");
+  initialsInput.setAttribute("minlength","3");
+  initialsInput.setAttribute("maxlength","3");
+  initialsInput.setAttribute("size","3");
+
+  mainEl.appendChild(initialsInput);
+  //mainEl.appendChild(par);
+  
+  // lets user input 3 letters and makes them uppercase
+  initialsInput.addEventListener("input", function() {
+    initialsInput.value = initialsInput.value.toUpperCase();
+    if ( initialsInput.value.length === 3 ) {
+
+    //create object for this score
+    let thisScore = [
+         {
+              name: initialsInput.value, 
+              score: userScore 
+            } 
+        ]
+
+    // get high score from memory
+    let storedScores = JSON.parse(localStorage.getItem("highScores"));
+    console.log("local storage storedScores", storedScores); //works
+
+    if(storedScores === null) {
+        storedScores = (thisScore[0]);
+        
+    } else {
+        storedScores = thisScore;
+    }
+
+    localStorage.setItem("highScores", JSON.stringify(storedScores));
+    
+       highScores();
+    }
+  });
+}
+
+function highScores() {
+
+    // get scores from storage
+    let storedScores = JSON.parse(localStorage.getItem("highScores"));
+    console.log("functions stored scores works", storedScores); //works
+
+    let heading = document.createElement("h2");
+    heading.setAttribute("id","main-heading");
+    heading.textContent = "Top High Scores";
+
+    result_box.appendChild(heading);
+
+
+    //check for this error
+    if (storedScores !== null) {
+
+    //sort scores
+    storedScores.sort((a,b) => (a.Score < b.Score) ? 1: -1);
+    
+
+    //shows number of scores of played games
+    let numScoresDisplay = 5;
+    if(storedScores.length < 5) {
+        numScoresDisplay = storedScores.length;
+        console.log("num score display works",numScoresDisplay);
+    }
+
+    for (var i = 0; i < numScoresDisplay; i++) {
+        var s = storedScores[i];
+  
+        var p = document.createElement("p"); // working
+        p.textContent = s.name + " " + ":" + " " + s.score;
+        mainEl.appendChild(p);
+      }
+    } else {
+      var p = document.createElement("p");
+      p.textContent = "test";
+      mainEl.appendChild(p);
+      console.log("it wreoksksks", storedScores);
+    }
+    
 }
 
 function startTimer(time) {
@@ -141,6 +244,7 @@ function startTimer(time) {
     function timer(){
         timeCount.textContent = time;
         time--;
+
         if(time < 9){
             let addZero = timeCount.textContent;
             timeCount.textContent = "0" + addZero;
@@ -149,7 +253,7 @@ function startTimer(time) {
             clearInterval(counter);
             timeCount.textContent = "0";
             timeOff.textContent = "Time Off";
-
+        
             showResultBox();
 
             let correctAns = questions[que_count].answer;
@@ -157,27 +261,19 @@ function startTimer(time) {
 
             for(let i = 0; i < allOptions; i++) {
                 if(option_list.children[i].textContent == correctAns){
-                    option_list.children[i].setAttribute("class", "option correct")
+                    option_list.children[i].setAttribute("class", "option correct")  
                 }
+
              }   
              for (let i = 0; i < allOptions; i++) {
                 option_list.children[i].classList.add("disable");
             }
             next_btn.style.display  = "block"; 
         }
+        
     }
 }
 
-function startTimerLine(time) {
-    counterLine = setInterval(timer, 29);
-    function timer(){
-        time += 1; 
-        timeLine.style.width = time + "px";
-        if(time > 549){
-            clearInterval(counterLine);
-        }
-    }
-}
 
 function queCounter(index){
     var bottom_que_counter = quizBox.querySelector(".total-questions");
@@ -185,7 +281,8 @@ function queCounter(index){
     bottom_que_counter.innerHTML = totalQuestionCountTag;
 }
 
-// read high scores
+
+
 
 
 

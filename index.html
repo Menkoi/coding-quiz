@@ -16,7 +16,7 @@
         <span>Rules Of The Quiz</span>
     </div>
     <div class="info-list">
-        <div class="info">1. You will only have <span>15 seconds</span> per each question</div>
+        <div class="info">1. You will only have <span>75 seconds</span> for the duration of the quiz</div>
         <div class="info">2. You will get points on how many quesitons you get correct</div>   
     </div>
     <div class="buttons">
@@ -33,7 +33,6 @@
             <div class="time-text">Time Left</div>
             <div class="timer-sec">75</div>
         </div>
-        <div class="time_line"></div>
     </header>
     <section>
         <!--Main Question-->
@@ -75,10 +74,12 @@
     <div class="buttons">
         <button class="quit">Replay Quiz</button>
     </div>
-    <div>
-        <h2>Would you like to save your score?</h2>
-        <input type="text" name="username" id="username" placeholder="Your Name">
-        <button type="submit" class="btn" id="saveScoreBtn" onclick="saveHighScore" disabled></button>
+      <h2>Would you like to save your score?</h2>
+      <div id="highScore"></div>
+      <section id="details"> </section>
+     <!--   <input type="text" name="username" id="username" placeholder="Your Name">
+        <button type="submit" class="btn" id="saveScoreBtn" onclick="saveHighScore"></button>
+     -->
     </div>
 </div>
     <script src="./assets/questions.js"></script>
