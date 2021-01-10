@@ -182,8 +182,8 @@ function showResultBox(){
     let storedScores = JSON.parse(localStorage.getItem("highScores"));
     console.log("local storage storedScores", storedScores); //works
 
-    if(storedScores === null) {
-        storedScores = (thisScore[0]);
+    if(storedScores !== null) {
+        storedScores.push (thisScore[0]);
         
     } else {
         storedScores = thisScore;
@@ -213,7 +213,7 @@ function highScores() {
     if (storedScores !== null) {
 
     //sort scores
-    storedScores.sort((a,b) => (a.Score < b.Score) ? 1: -1);
+    storedScores.sort((a,b) => {return a.Score > b.Score});
     
 
     //shows number of scores of played games
@@ -230,12 +230,12 @@ function highScores() {
         p.textContent = s.name + " " + ":" + " " + s.score;
         mainEl.appendChild(p);
       }
-    } else {
-      var p = document.createElement("p");
-      p.textContent = "test";
-      mainEl.appendChild(p);
-      console.log("it wreoksksks", storedScores);
-    }
+    } //else {
+      //var p = document.createElement("p");
+      //p.textContent = "test";
+      //mainEl.appendChild(p);
+      //console.log("it wreoksksks", storedScores);
+    //}
     
 }
 
