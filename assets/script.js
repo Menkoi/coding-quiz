@@ -95,8 +95,7 @@ function optionSelected(answer){
         //timeCount.textContent = time;
         //startTimer(time);
 
-        //console.log(time);
-
+        console.log(time);
      
 
         //if (timeSub > 0) {
@@ -130,8 +129,7 @@ function optionSelected(answer){
 function showResultBox(){
     clearInterval(counter);
     next_btn.style.display  = "none";
-    infoBox.classList.remove("activeInfo");
-    //quizBox.classList.add("activeQuiz"); // show quiz box 
+    infoBox.classList.remove("activeInfo"); 
     result_box.classList.add("activeResult"); // show result box
     var scoreText = result_box.querySelector(".score-text"); 
     
@@ -149,7 +147,6 @@ function showResultBox(){
     }
     
      // creates input for user to add initials
-  //let par = document.createElement("p");
 
   let initialsInput = document.createElement("input");
   initialsInput.setAttribute("id","userInitials");
@@ -159,7 +156,6 @@ function showResultBox(){
   initialsInput.setAttribute("size","3");
 
   mainEl.appendChild(initialsInput);
-  //mainEl.appendChild(par);
   
   // lets user input 3 letters and makes them uppercase
   initialsInput.addEventListener("input", function() {
