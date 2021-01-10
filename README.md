@@ -3,7 +3,7 @@
 # Javascript Coding Quiz
 This is a short timed quiz with different questions all relating to javascript!
 
-# instructions 
+# Instructions 
 To view the website click the link --> 
 https://menkoi.github.io/password-gen/
 
