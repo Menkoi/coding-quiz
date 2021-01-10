@@ -199,15 +199,33 @@ function showResultBox(){
 
 function highScores() {
 
-    // get scores from storage
-    let storedScores = JSON.parse(localStorage.getItem("highScores"));
-    console.log("functions stored scores works", storedScores); //works
-
     let heading = document.createElement("h2");
     heading.setAttribute("id","main-heading");
     heading.textContent = "Top 5 High Scores";
 
-    result_box.appendChild(heading);
+    mainEl.appendChild(heading);
+
+
+    var clearHighScoresBtn = document.createElement('button');
+    clearHighScoresBtn.innerText = 'Clear Highscore';
+    clearHighScoresBtn.style.height =  "40px";
+    clearHighScoresBtn.style.backgroundColor = "rgb(103, 189, 230)";
+    clearHighScoresBtn.style.borderRadius = "5px";
+    clearHighScoresBtn.style.fontWeight = "bold";
+    clearHighScoresBtn.style.fontSize = "16px";
+    clearHighScoresBtn.style.color = "white";
+    clearHighScoresBtn.style.border = "rgb(103, 189, 230)"
+
+
+
+    mainEl.appendChild(clearHighScoresBtn);
+
+
+
+
+    // get scores from storage
+    let storedScores = JSON.parse(localStorage.getItem("highScores"));
+    console.log("functions stored scores works", storedScores); //works
 
 
     //check for this error
@@ -237,7 +255,10 @@ function highScores() {
       //mainEl.appendChild(p);
       //console.log("it wreoksksks", storedScores);
     //}
-    
+    clearHighScoresBtn.addEventListener("click", function(){
+        window.localStorage.removeItem("highScores");
+        clearHighScoresBtn.innerHTML = "High Scores cleared!";
+    });
 }
 
 function startTimer(time) {
