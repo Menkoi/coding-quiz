@@ -9,7 +9,7 @@ https://menkoi.github.io/password-gen/
 
 1. To start the quiz click the link and press the start button
 
-<a href="https://imgur.com/2IB6kW7"><img src="https://i.imgur.com/2IB6kW7.png" title="source: imgur.com" /></a>
+<img src="https://i.imgur.com/2IB6kW7.png" /></a>
 
 
 2. Once the start button has been clicked, a box will appear with information about the quiz.
