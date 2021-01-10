@@ -169,6 +169,7 @@ function showResultBox(){
   initialsInput.addEventListener("input", function() {
     initialsInput.value = initialsInput.value.toUpperCase();
     if ( initialsInput.value.length === 3 ) {
+        initialsInput.disabled = true;
 
     //create object for this score
     let thisScore = [
