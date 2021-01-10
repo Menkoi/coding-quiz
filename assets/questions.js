@@ -3,82 +3,122 @@
 let questions = [
     {
         numb: 1,
-        question: "Лорем ипсум долор сит амет?",
-        answer: "Hyper aaaaaaaa*",
+        question: "Inside which HTML element do we put the JavaScript?",
+        answer: "script",
         options: [
-            "Hyper aaaaaaaa*",
-            "yyyyyyyyyyyyyy",
-            "ffffffffffffffff",
-            "ggggggggggggggggg"
+            "js",
+            "javascript",
+            "scripting",
+            "script"
         ]
     },
 
     {
         numb: 2,
-        question: "Лорем ипсум долор сит амет?",
-        answer: "Тале инани но сит*",
+        question: "String values must be enclosed within _____ when being assigned to variables.",
+        answer: "quotes",
         options: [
-            "партиендо глориатур не нец",
-            "Тале инани но сит*",
-            "Не ехплицари еурипидис нец",
-            "Еи сеа игнота сцрипторем"
+            "commas",
+            "curly brackets",
+            "quotes",
+            "parenthesis"
         ]
     },
 
     {
         numb: 3,
-        question: "写ミシ気難際るばよ戦能リノモ補大サ応共すラちく朝92?",
-        answer: "段頼な地収ワセカス省理果場つをがだ*",
+        question: "Arrays in JavaScript can be used to store _____.",
+        answer: "other arrays",
         options: [
-            "世んゆれッ目枚どうょル控",
-            "段頼な地収ワセカス省理果場つをがだ*",
-            "直ヨマ宇前済がっへぎ上8示",
-            "祭シヲト能成共ヱユカ金道再ドぐ"
+            "numbers and strings",
+            "other arrays",
+            "booleans",
+            "all of the above"
         ]
     },
 
     {
         numb: 4,
-        question: "국회는 국가의 예산안을 심의?",
-        answer: "형사피고인은 상당한 이유가 없는 한*",
+        question: "Commonly used data types DO NOT include",
+        answer: "alerts",
         options: [
-            "헌법재판소의 조직과 운영 기타 필요한",
-            "모든 국민은 주거의 자유를 침해받지 아니한다",
-            "동의를 얻어 대통령이 임명하고",
-            "형사피고인은 상당한 이유가 없는 한*"
+            "strings",
+            "booleans",
+            "alerts",
+            "numbers"
         ]
     },
 
     {
         numb: 5,
-        question: "Negi movi proto ien ej?",
-        answer: " Re inter artefarita multiplikite nia*",
+        question: "How do you create a function in JavaScript?",
+        answer: "function myFunction()",
         options: [
-            "suba koruso hodiaŭa oz ene",
-            " Re inter artefarita multiplikite nia*",
-            "Poa ng modo kilo rolvorteto",
-            "Nek reciproke centimetro ve, jes fi kiomas "
+            "function = myFunction()",
+            "function myFunction()",
+            "function:myFunction()",
+            "createMyFunction()"
         ]
     },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    {
+        numb: 6,
+        question: "How do you call a function named myFunction?",
+        answer: "myFunctions()",
+        options: [
+            "call myFunction()",
+            "call function myFunction()",
+            "myFunctions()",
+            "call myFunction"
+        ]
+    },
+    
+    {
+        numb: 7,
+        question: "To see if two variables are equal in an if / else statement you would use ____.",
+        answer: "==",
+        options: [
+            "=",
+            "==",
+            "'equals'",
+            "!="
+        ]
+    },
+    
+    {
+        numb: 8,
+        question: "The first index of an array is ____.",
+        answer: "0",
+        options: [
+            "0",
+            "1",
+            "8",
+            "any"
+        ]
+    },
+    
+    {
+        numb: 9,
+        question: "Who invented JavaScript?",
+        answer: "Brendan Eich",
+        options: [
+            " Douglas Crockford",
+            "Sheryl Sandberg",
+            "Brandon Burton",
+            "Brendan Eich"
+        ]
+    },
+    
+    {
+        numb: 10,
+        question: "How to write an IF statement in JavaScript?",
+        answer: "if(i == 5)",
+        options: [
+            "if i == 5 then",
+            "if i = 5 then",
+            "if(i == 5)",
+            "if i = 5"
+        ]
+    },
 
 ];

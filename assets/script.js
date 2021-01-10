@@ -9,6 +9,19 @@ var timeCount = quizBox.querySelector(".timer .timer-sec");
 var timeOff = quizBox.querySelector("header .time-text");
 var result_box = document.querySelector("result-box");
 var submitBtn = document.querySelector("result-box .submit");
+var mainEl = document.querySelector("#details");
+
+var next_btn = quizBox.querySelector(".next-btn");
+var result_box = document.querySelector(".result-box");
+var replay_quiz = result_box.querySelector(".buttons .replay-quiz");
+
+let que_count = 0;
+let que_numb = 1;
+let counter;
+var time = 70;
+let widthValue = 0;
+let userScore = 0;
+let timeSub = -10;
 
 // start quiz button clicked
 startBtn.onclick = ()=>{
@@ -29,22 +42,7 @@ continueBtn.onclick = ()=>{
     startTimer(time);
 }
 
-let que_count = 0;
-let que_numb = 1;
-let counter;
-var time = 75;
-let widthValue = 0;
-let userScore = 0;
-let timeSub = -10;
-let highscoreDiv = document.querySelector("#highscore");
-let mainEl = document.querySelector("#details");
-
-var next_btn = quizBox.querySelector(".next-btn");
-var result_box = document.querySelector(".result-box");
-var restart_quiz = result_box.querySelector(".buttons .restart");
-var quit_quiz = result_box.querySelector(".buttons .quit");
-
-quit_quiz.onclick = ()=>{
+replay_quiz.onclick = ()=>{
     window.location.reload();
 }
 
@@ -61,7 +59,7 @@ if(que_count < questions.length - 1){
     setInterval(counter);
     console.log("Questions Complete");
     showResultBox();
-}
+ }
 }
 
 // question and options from array
@@ -79,7 +77,6 @@ function showQuestions(index) {
         option[i].setAttribute("onclick", "optionSelected(this)")
     }
 }
-
 
 function optionSelected(answer){
 
@@ -127,8 +124,7 @@ function optionSelected(answer){
         option_list.children[i].classList.add("disable");
     }
     next_btn.style.display  = "block";
-
-    
+  
 }
 
 function showResultBox(){
@@ -205,7 +201,6 @@ function highScores() {
 
     mainEl.appendChild(heading);
 
-
     var clearHighScoresBtn = document.createElement('button');
     clearHighScoresBtn.innerText = 'Clear Highscore';
     clearHighScoresBtn.style.height =  "40px";
@@ -216,13 +211,8 @@ function highScores() {
     clearHighScoresBtn.style.color = "white";
     clearHighScoresBtn.style.border = "rgb(103, 189, 230)"
 
-
-
     mainEl.appendChild(clearHighScoresBtn);
-
-
-
-
+    
     // get scores from storage
     let storedScores = JSON.parse(localStorage.getItem("highScores"));
     console.log("functions stored scores works", storedScores); //works
@@ -249,15 +239,11 @@ function highScores() {
         p.textContent = s.name + " " + ":" + " " + s.score;
         mainEl.appendChild(p);
       }
-    } //else {
-      //var p = document.createElement("p");
-      //p.textContent = "test";
-      //mainEl.appendChild(p);
-      //console.log("it wreoksksks", storedScores);
-    //}
+    } 
+
     clearHighScoresBtn.addEventListener("click", function(){
         window.localStorage.removeItem("highScores");
-        clearHighScoresBtn.innerHTML = "High Scores cleared!";
+        clearHighScoresBtn.innerHTML = "High Scores Cleared!";
     });
 }
 
@@ -285,7 +271,6 @@ function startTimer(time) {
                 if(option_list.children[i].textContent == correctAns){
                     option_list.children[i].setAttribute("class", "option correct")  
                 }
-
              }   
              for (let i = 0; i < allOptions; i++) {
                 option_list.children[i].classList.add("disable");
@@ -295,7 +280,6 @@ function startTimer(time) {
         
     }
 }
-
 
 function queCounter(index){
     var bottom_que_counter = quizBox.querySelector(".total-questions");

@@ -10,6 +10,7 @@ body {
     box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2),
                 0px 6px 20px 0 rgba(0, 0, 0, 0.19);
     transition: all 0.3s ease;
+    font-family: monospace;
 }
 
 .info-box.activeInfo, .quiz-box.activeQuiz, .result-box.activeResult{
@@ -147,13 +148,6 @@ body {
     border-radius: 5px;
 }
 
-.quiz-box header .time_line {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    height: 3px;
-    background: red;
-}
 
 .quiz-box section {
     padding: 25px 30px 20px 30px;
