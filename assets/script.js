@@ -204,7 +204,7 @@ function highScores() {
 
     let heading = document.createElement("h2");
     heading.setAttribute("id","main-heading");
-    heading.textContent = "Top High Scores";
+    heading.textContent = "Top 5 High Scores";
 
     result_box.appendChild(heading);
 
@@ -213,7 +213,7 @@ function highScores() {
     if (storedScores !== null) {
 
     //sort scores
-    storedScores.sort((a,b) => {return a.Score > b.Score});
+    storedScores.sort((a,b) => {return a.Score < b.Score ? 1: -1});
     
 
     //shows number of scores of played games
