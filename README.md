@@ -1,7 +1,7 @@
 <img src="https://i.imgur.com/26Tj3u2.png"/></a>
 
 # Javascript Coding Quiz
-This is a short timed quiz with different questions all realating to javascipt!
+This is a short timed quiz with different questions all relating to javascript!
 
 # instructions 
 To view the website click the link --> 
