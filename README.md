@@ -1,4 +1,6 @@
-<img src="https://i.imgur.com/26Tj3u2.png"/></a>
+<img src="https://i.imgur.com/cwLTOc4.png"/></a>
+
+![badmath](https://img.shields.io/badge/License-MIT-blue)
 
 # Javascript Coding Quiz
 This is a short timed quiz with different questions all relating to javascript!
@@ -31,3 +33,11 @@ https://menkoi.github.io/coding-quiz/
 6. If you choose to save you initials then a "Top 5 scores" will populate
 
 <img src="https://i.imgur.com/XBCGBHp.png" ></a>
+
+ ## Questions? Contact me
+
+  - Menkoi
+
+  - https://github.com/Menkoi
+
+  - celaeon@gmail.com
