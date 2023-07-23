@@ -33,11 +33,3 @@ https://menkoi.github.io/coding-quiz/
 6. If you choose to save you initials then a "Top 5 scores" will populate
 
 <img src="https://i.imgur.com/XBCGBHp.png" ></a>
-
- ## Questions? Contact me
-
-  - Menkoi
-
-  - https://github.com/Menkoi
-
-  - celaeon@gmail.com
